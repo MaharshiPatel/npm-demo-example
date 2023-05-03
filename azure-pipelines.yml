@@ -59,7 +59,6 @@ steps:
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
 
-
 - task: ArtifactoryBuildPromotion@1
   inputs:
     artifactoryService: 'Artifactory'
