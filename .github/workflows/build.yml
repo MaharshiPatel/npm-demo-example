@@ -5,7 +5,8 @@ jobs:
  jfrog-ci-integration:
    runs-on: ubuntu-latest
    env:
-     JF_ARTIFACTORY_1: ${{ secrets.JF_ARTIFACTORY_SECRET_1 }}
+     JF_URL: ${{ secrets.JF_URL }}
+     JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
      JFROG_BUILD_STATUS: PASS
    steps:
      - name: Checkout
@@ -20,7 +21,7 @@ jobs:
      - name: Build
        run: |
          # Configure the project
-         jfrog rt npm-config --server-id-resolve jfrog-instance --repo-resolve sup016-npm-virtual
+         jfrog rt npm-config --server-id-resolve jfrog-instance --repo-resolve alpha-npm-virtual
          # Build the project using JFrog CLI
          jfrog rt npmi
      - name: Failure check
